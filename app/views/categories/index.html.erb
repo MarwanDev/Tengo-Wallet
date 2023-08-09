@@ -1,5 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
+<nav class="navbar">
+  <div class="navbar-left">
+  <%= link_to unauthenticated_root_path do %>
+    <div class="back-button">
+      <img src="/assets/arrow.png" alt="back" />
+    </div>
+  <% end %>
+  
+  </div>
+  <div class="navbar-center">
+    <h1>REGISTER</h1>
+  </div>
+  <div class="navbar-right">
+    <button class="next-button">Next</button>
+  </div>
+</nav>
+
 <h1>Categories</h1>
 
 <div id="categories">

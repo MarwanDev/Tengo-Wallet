@@ -3,7 +3,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.all
+    @category = Category.find(params[:category_id])
+    @transactions = @category.transactions
   end
 
   # GET /transactions/1 or /transactions/1.json
