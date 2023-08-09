@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "categories#index"
+
+  authenticated :user do
+    root 'categories#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'users#splash', as: :unauthenticated_root
+  end
+
+  resources :users, only: [:splash]
   resources :categories do
     resources :transactions
   end

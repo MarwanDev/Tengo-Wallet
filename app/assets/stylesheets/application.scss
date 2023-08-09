@@ -1,0 +1,137 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'fonts';
+
+* {
+  background-color: #f5f6f8;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+
+  img {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.splash-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sign-in-btn,
+.sign-up-btn {
+  padding: 10px 15px;
+  font-family: 'Proxima Nova Bold', sans-serif;
+  font-size: 15px;
+  width: 80vw;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sign-in-btn {
+  background-color: #3878c2;
+  color: #fff;
+}
+
+.sign-up-btn {
+  background-color: rgba(0, 0, 0, 0);
+  color: #434b54;
+}
+
+.sign-up-form {
+  display: flex;
+  justify-content: center;
+  // border-top: 1px solid rgb(56, 55, 55) !important;
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+.field {
+  background-color: #fff;
+}
+
+.field-input {
+  padding: 10px 0;
+  border: none !important;
+  border-bottom: 1px solid rgb(56, 55, 55) !important;
+  width: 85vw;
+  background-color: #fff;
+}
+
+.navbar {
+  background-color: #3778c2;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0 15px;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.navbar-center {
+  background-color: rgba(0, 0, 0, 0);
+  align-self: center;
+
+  h1 {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    font-family: 'Proxima Nova Bold', sans-serif;
+    font-size: 15px;
+  }
+}
+
+.navbar-left {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.back-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+
+  img {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.navbar-right {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.next-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #fff;
+  font-family: 'Proxima Nova Bold', sans-serif;
+}
+
+.actions {
+  background-color: #fff;
+}

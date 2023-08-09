@@ -1,26 +1,32 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<nav class="navbar">
+  <div class="navbar-left">
+  <%= link_to unauthenticated_root_path do %>
+    <div class="back-button">
+      <img src="/assets/arrow.png" alt="back" />
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  
   </div>
-<% end %>
+  <div class="navbar-center">
+    <h1>LOG IN</h1>
+  </div>
+  <div class="navbar-right">
+    <button class="next-button">Log in</button>
+  </div>
+</nav>
 
-<%= render "devise/shared/links" %>
+<div class="sign-up-form">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"field-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class:"field-input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log in", class:"sign-up-btn" %>
+    </div>
+  <% end %>
+</div>
