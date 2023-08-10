@@ -1,12 +1,16 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
+<div class="category-container" id="<%= dom_id category %>">
+  <%= link_to category, class:"cat-link" do %>  
+    <div class="icon-container">
+      <img src=<%= category.icon %> alt="icon">
+    </div>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
+    
+    <p class="cat-name">
+      <%= category.name %>
+    </p>
 
+    <p class="cat-amount">
+      <%= category.transactions.sum(:amount) %>
+    </p>
+  <% end %>
 </div>

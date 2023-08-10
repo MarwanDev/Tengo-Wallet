@@ -12,6 +12,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
+    @category = Category.includes(:user).find_by(id: params[:category_id])
     @transaction = Transaction.new
   end
 
@@ -20,11 +21,14 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
+    @category = Category.includes(:user).find_by(id: params[:category_id])
     @transaction = Transaction.new(transaction_params)
+    @transaction.author_id = current_user.id
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to transaction_url(@transaction), notice: 'Transaction was successfully created.' }
+        @transaction.categories.push(Category.find(params[:category_id]))
+        format.html { redirect_to category_path(@category), notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new, status: :unprocessable_entity }

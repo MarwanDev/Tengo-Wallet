@@ -1,14 +1,16 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[show edit update destroy]
+  # before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories or /categories.json
   def index
     @categories = current_user.categories || []
-    # @transactions = @category.transactions
   end
 
   # GET /categories/1 or /categories/1.json
-  def show; end
+  def show
+    @category = Category.includes(transactions: :author).find(params[:id])
+    @transactions = @category.transactions.order(created_at: :desc)
+  end
 
   # GET /categories/new
   def new
@@ -25,7 +27,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
+        format.html { redirect_to categories_path, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }

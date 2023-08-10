@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:splash]
   resources :categories do
-    resources :transactions
+    resources :transactions, only: [:new, :create, :destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

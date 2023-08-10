@@ -1,9 +1,20 @@
-<h1>New transaction</h1>
+<nav class="navbar">
+  <div class="navbar-left">
+  <%= link_to categories_path(@category) do %>
+    <div class="back-button">
+      <img src="/assets/arrow.png" alt="back" />
+    </div>
+  <% end %>
+  
+  </div>
+  <div class="navbar-center">
+    <h1>NEW TRANSACTION</h1>
+  </div>
+  <div class="navbar-right">
+    <button class="next-button">Next</button>
+  </div>
+</nav>
 
 <%= render "form", transaction: @transaction %>
 
 <br>
-
-<div>
-  <%= link_to "Back to transactions", transactions_path %>
-</div>
