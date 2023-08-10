@@ -4,4 +4,5 @@ class Transaction < ApplicationRecord
   has_many :categories, through: :transaction_categories
 
   validates :name, presence: true
+  validates :amount, presence: true
 end
