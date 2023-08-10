@@ -91,6 +91,21 @@ Example command:
   rails server
 ```
 
+
+### Run tests
+To run tests, run the following command:
+npm test
+Example command:
+```sh
+  npx stylelint "**/*.{css,scss}"
+  rubocop .
+  rspec .
+```
+### Deployment <a name="deployment"></a>
+
+- [Live](https://tengo-wallet.onrender.com/)
+
+- Demo [video](https://drive.google.com/file/d/1GL5S8DZX_acx8lQ15gLXHqwZFhdskcye/view?usp=sharing)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
