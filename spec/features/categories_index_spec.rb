@@ -18,25 +18,25 @@ RSpec.feature 'Categories', type: :system do
         user: @user
       )
     @transaction =
-    Transaction.create(
+      Transaction.create(
         name: 'tran 1',
         amount: 15,
-        author: @user,
-    )
+        author: @user
+      )
     @transaction_category =
-    TransactionCategory.create(
+      TransactionCategory.create(
         category: @category,
-        my_transaction: @transaction,
-    )
+        my_transaction: @transaction
+      )
   end
-  
+
   describe '#index' do
-  it 'should display categories' do
+    it 'should display categories' do
       visit categories_path
       expect(page).to have_content(@category.name)
       expect(page).to have_css('img')
       expect(page).to have_content(@category.transactions.sum(:amount))
-      expect(page).to have_content("New category")
+      expect(page).to have_content('New category')
 
       visit category_path(@category)
       expect(current_path).to eq(category_path(@category))
