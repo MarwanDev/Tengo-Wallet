@@ -10,7 +10,7 @@
     </p>
 
     <p class="cat-amount">
-      <%= category.transactions.sum(:amount) %>
+      $<%= category.transactions.sum(:amount) %>
     </p>
   <% end %>
 </div>
