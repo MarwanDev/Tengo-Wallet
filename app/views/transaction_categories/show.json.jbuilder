@@ -1,1 +1,1 @@
-json.partial! "transaction_categories/transaction_category", transaction_category: @transaction_category
+json.partial! 'transaction_categories/transaction_category', transaction_category: @transaction_category

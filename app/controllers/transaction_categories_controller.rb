@@ -1,5 +1,5 @@
 class TransactionCategoriesController < ApplicationController
-  before_action :set_transaction_category, only: %i[ show edit update destroy ]
+  before_action :set_transaction_category, only: %i[show edit update destroy]
 
   # GET /transaction_categories or /transaction_categories.json
   def index
@@ -7,8 +7,7 @@ class TransactionCategoriesController < ApplicationController
   end
 
   # GET /transaction_categories/1 or /transaction_categories/1.json
-  def show
-  end
+  def show; end
 
   # GET /transaction_categories/new
   def new
@@ -16,8 +15,7 @@ class TransactionCategoriesController < ApplicationController
   end
 
   # GET /transaction_categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /transaction_categories or /transaction_categories.json
   def create
@@ -25,7 +23,10 @@ class TransactionCategoriesController < ApplicationController
 
     respond_to do |format|
       if @transaction_category.save
-        format.html { redirect_to transaction_category_url(@transaction_category), notice: "Transaction category was successfully created." }
+        format.html do
+          redirect_to transaction_category_url(@transaction_category),
+                      notice: 'Transaction category was successfully created.'
+        end
         format.json { render :show, status: :created, location: @transaction_category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,10 @@ class TransactionCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @transaction_category.update(transaction_category_params)
-        format.html { redirect_to transaction_category_url(@transaction_category), notice: "Transaction category was successfully updated." }
+        format.html do
+          redirect_to transaction_category_url(@transaction_category),
+                      notice: 'Transaction category was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @transaction_category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +56,20 @@ class TransactionCategoriesController < ApplicationController
     @transaction_category.destroy
 
     respond_to do |format|
-      format.html { redirect_to transaction_categories_url, notice: "Transaction category was successfully destroyed." }
+      format.html { redirect_to transaction_categories_url, notice: 'Transaction category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transaction_category
-      @transaction_category = TransactionCategory.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def transaction_category_params
-      params.require(:transaction_category).permit(:category_id, :transaction_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_transaction_category
+    @transaction_category = TransactionCategory.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def transaction_category_params
+    params.require(:transaction_category).permit(:category_id, :transaction_id)
+  end
 end

@@ -1,45 +1,49 @@
-require "test_helper"
+require 'test_helper'
 
 class TransactionCategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @transaction_category = transaction_categories(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get transaction_categories_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_transaction_category_url
     assert_response :success
   end
 
-  test "should create transaction_category" do
-    assert_difference("TransactionCategory.count") do
-      post transaction_categories_url, params: { transaction_category: { category_id: @transaction_category.category_id, transaction_id: @transaction_category.transaction_id } }
+  test 'should create transaction_category' do
+    assert_difference('TransactionCategory.count') do
+      post transaction_categories_url,
+           params: { transaction_category: { category_id: @transaction_category.category_id,
+                                             transaction_id: @transaction_category.transaction_id } }
     end
 
     assert_redirected_to transaction_category_url(TransactionCategory.last)
   end
 
-  test "should show transaction_category" do
+  test 'should show transaction_category' do
     get transaction_category_url(@transaction_category)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_transaction_category_url(@transaction_category)
     assert_response :success
   end
 
-  test "should update transaction_category" do
-    patch transaction_category_url(@transaction_category), params: { transaction_category: { category_id: @transaction_category.category_id, transaction_id: @transaction_category.transaction_id } }
+  test 'should update transaction_category' do
+    patch transaction_category_url(@transaction_category),
+          params: { transaction_category: { category_id: @transaction_category.category_id,
+                                            transaction_id: @transaction_category.transaction_id } }
     assert_redirected_to transaction_category_url(@transaction_category)
   end
 
-  test "should destroy transaction_category" do
-    assert_difference("TransactionCategory.count", -1) do
+  test 'should destroy transaction_category' do
+    assert_difference('TransactionCategory.count', -1) do
       delete transaction_category_url(@transaction_category)
     end
 
