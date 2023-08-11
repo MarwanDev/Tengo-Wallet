@@ -105,7 +105,7 @@ Example command:
 
 - [Live](https://tengo-wallet.onrender.com/)
 
-- Demo [video](https://drive.google.com/file/d/1GL5S8DZX_acx8lQ15gLXHqwZFhdskcye/view?usp=sharing)
+- Demo [video](https://drive.google.com/file/d/1WI1qYL1XYgDiYuDx2j0PlAYZpK6zDIa6/view?usp=sharing)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
