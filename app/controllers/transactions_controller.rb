@@ -24,7 +24,6 @@ class TransactionsController < ApplicationController
     @category = Category.find(params[:category_id])
     @transactions = @category.transactions.build(transaction_params)
     @transactions.author = current_user
-    Rails.logger.info @item.inspect
 
     respond_to do |format|
       if @transactions.save

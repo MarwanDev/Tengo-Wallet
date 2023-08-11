@@ -154,7 +154,7 @@ If you like this project, leave a star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank the Microverse community 
+I would like to thank the Microverse community and The [Creative Commons license of the design](https://creativecommons.org/licenses/by-nc/4.0/) for such a great design
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
