@@ -1,10 +1,10 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  before_action :set_category
 
   # GET /transactions or /transactions.json
   def index
-    @category = Category.find(params[:category_id])
-    @transactions = @category.transactions
+    @transactions = Category.find(@category.id).transactions.order(created_at: :desc)
   end
 
   # GET /transactions/1 or /transactions/1.json
@@ -12,8 +12,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
-    @category = Category.includes(:user).find_by(id: params[:category_id])
-    @transaction = Transaction.new
+    @category = Category.find(params[:category_id])
+    @transaction = @category.transactions.build
   end
 
   # GET /transactions/1/edit
@@ -21,14 +21,15 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
-    @category = Category.includes(:user).find_by(id: params[:category_id])
-    @transaction = Transaction.new(transaction_params)
-    @transaction.author_id = current_user.id
+    @category = Category.find(params[:category_id])
+    @transactions = @category.transactions.build(transaction_params)
+    @transactions.author = current_user
+    Rails.logger.info @item.inspect
 
     respond_to do |format|
-      if @transaction.save
-        @transaction.categories.push(Category.find(params[:category_id]))
-        format.html { redirect_to category_path(@category), notice: 'Transaction was successfully created.' }
+      if @transactions.save
+        @transactions.categories.push(Category.find(params[:category_id]))
+        format.html { redirect_to categorie_transactions_path, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -62,13 +63,12 @@ class TransactionsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_transaction
-    @transaction = Transaction.find(params[:id])
+  def set_category
+    @category = current_user.categories.find(params[:category_id])
   end
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:name, :author_id, :amount)
+    params.require(:transaction).permit(:name, :author_id, :amount, :group_id)
   end
 end

@@ -1,5 +1,5 @@
 <div class="category-container" id="<%= dom_id category %>">
-  <%= link_to category, class:"cat-link" do %>  
+  <%= link_to category_transactions_path(category), class:"cat-link" do %>  
     <div class="icon-container">
       <img src=<%= category.icon %> alt="icon">
     </div>

@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="input-field">
+    <%= form.collection_select :category_id, current_user.categories, :id, :name, {}, class: "form-select i-control" %>
+  </div>
+</div>
+
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
